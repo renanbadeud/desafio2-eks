@@ -103,3 +103,7 @@ provider "kubernetes" {
  #aws eks associate-access-policy --cluster-name desafio-eks-lK1VhSAE --principal-arn "arn:aws:iam::176924220418:user/desafio_aquarela" --policy-arn arn:aws:eks::aws:cluster-access-policy/AmazonEKSClusterAdminPolicy --access-scope type=cluster
 
  #kubectl cluster-info
+
+#  aws eks --region us-east-2 update-kubeconfig --name eks-cluster
+
+# kubectl describe -n kube-system configmap/aws-auth
