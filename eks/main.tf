@@ -87,23 +87,3 @@ provider "kubernetes" {
     args = ["eks", "get-token", "--cluster-name", module.eks.cluster_name]
   }
 }
-
-#aws eks --region $(terraform output -raw region) update-kubeconfig --name $(terraform output -raw cluster_name)
-
-#verifique que o usuario foi adicionado ao configmap aws-auth
-
-#kubectl get configmaps aws-auth -n kube-system -o yaml
-
-#wget https://raw.githubusercontent.com/microservices-demo/microservices-demo/master/deploy/kubernetes/complete-demo.yaml
-
-#AWS_PROFILE=desafio_aquarela aws eks --region $(terraform output -raw region) update-kubeconfig --name $(terraform output -raw cluster_name)
-
- #aws eks create-access-entry --cluster-name desafio-eks-lK1VhSAE --principal-arn "arn:aws:iam::176924220418:user/desafio_aquarela"
-
- #aws eks associate-access-policy --cluster-name desafio-eks-lK1VhSAE --principal-arn "arn:aws:iam::176924220418:user/desafio_aquarela" --policy-arn arn:aws:eks::aws:cluster-access-policy/AmazonEKSClusterAdminPolicy --access-scope type=cluster
-
- #kubectl cluster-info
-
-#  aws eks --region us-east-2 update-kubeconfig --name eks-cluster
-
-# kubectl describe -n kube-system configmap/aws-auth
