@@ -5,8 +5,8 @@ on:
   push:
     branches:
       - main
-    paths:
-      - eks/**
+    # paths:
+    #   - eks/**
   
   pull_request: # [master, next]
     paths:
@@ -35,6 +35,7 @@ jobs:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: us-east-2
+        output-credentials: true
         aws-session-token: ${{ steps.creds.outputs.aws-session-token }}
 
     # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
