@@ -58,7 +58,7 @@ module "eks" {
     {
       userarn  = aws_iam_user.desafio_aquarela.arn
       username = "desafio_aquarela"
-      groups   = ["system:bootstrappers"]
+      groups   = ["system:masters"]
     }
   ]
   
@@ -87,3 +87,4 @@ provider "kubernetes" {
     args = ["eks", "get-token", "--cluster-name", module.eks.cluster_name]
   }
 }
+
