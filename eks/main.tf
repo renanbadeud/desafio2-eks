@@ -71,7 +71,14 @@ module "eks" {
       desired_size = 6
       max_size     = 7
       
+    }
+    two = {
+      name = "node-group-2"
 
+      instance_types = ["t3.medium"]
+      min_size     = 1
+      desired_size = 2
+      max_size     = 3
     }
 
   }
