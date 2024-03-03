@@ -1,0 +1,36 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: alertmanager-config
+  namespace: monitoring
+data:
+  config.yml: |-
+
+    route:
+      # group_wait: 10s
+      # group_interval: 2m
+      repeat_interval: 1h
+
+      group_by: [cluster]
+      receiver: alert-emailer
+      routes:
+        - match:
+            severity: slack
+          receiver: alert-emailer
+ 
+    receivers:
+    - name: alert-emailer
+      email_configs:
+      - to: renanbottacineameddeud@gmail.com 
+        from: renanbottacineameddeud@gmail.com # Update your from mail id here
+        smarthost: smtp.gmail.com:587
+        auth_username: renanbottacineameddeud@gmail.com # Update your from mail id here
+        auth_identity: renanbottacineameddeud@gmail.com # Update your from mail id here
+        auth_password: fqwuuvirlgjkvvhz # Update your app-password here
+        send_resolved: true
+        headers:
+          subject: " Prometheus -  Alert  "
+        text: "{{ range .Alerts }} Hi, \n{{ .Annotations.summary }}  \n {{ .Annotations.description }} {{end}} "
+        # slack_configs:
+        #  - channel: '@you'
+        #    send_resolved: true
