@@ -9,8 +9,9 @@ data:
     route:
       # group_wait: 10s
       # group_interval: 2m
-      repeat_interval: 1h
-
+      # repeat_interval: 1h
+      # default 4h
+      
       group_by: [cluster]
       receiver: alert-emailer
       routes:
