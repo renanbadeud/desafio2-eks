@@ -5,8 +5,8 @@ on:
   push:
     branches:
       - main
-    paths:
-      - eks/**
+    # paths:
+    #   - eks/**
   
   pull_request: # [master, next]
     paths:
@@ -55,6 +55,8 @@ jobs:
       id: plan
       run: terraform plan
      
-    - name: Terraform Apply
-      run: terraform apply -auto-approve
+    # - name: Terraform Apply
+    #   run: terraform apply -auto-approve
 
+    - name: Terraform destroy
+      run: terraform destroy -auto-approve
